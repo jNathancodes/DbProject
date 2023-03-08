@@ -30,6 +30,8 @@ namespace DbProject.Services
             Console.WriteLine("Phonenumber: ");
             customer.PhoneNumber = Console.ReadLine() ?? "";
 
+            var AddressService = new AddressService();
+            await AddressService.AddCustomerAddress(customer);
 
             await SaveCustomerToDb(customer);
 

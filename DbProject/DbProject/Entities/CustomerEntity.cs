@@ -1,5 +1,6 @@
 ﻿
 
+using DbProject.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace DbProject.Entities

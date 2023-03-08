@@ -9,8 +9,7 @@ namespace DbProject.Enums
     public enum Status
     {
         NotStarted,
-        Inprogress, 
+        Inprogress,
         Finnished,
-
     }
 }

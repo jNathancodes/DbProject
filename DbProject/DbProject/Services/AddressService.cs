@@ -13,7 +13,7 @@ namespace DbProject.Services
     {
         private DataContext _context = new DataContext();
 
-        public async Task AddCustomerAddress()
+        public async Task AddCustomerAddress(CustomerEntity customer)
         {
             var address = new AddressEntity();
 
