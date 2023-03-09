@@ -18,9 +18,11 @@ internal class Program
             Console.Clear();
             Console.WriteLine("1. Create a customer");
             Console.WriteLine("2. Create a new case");
-            Console.WriteLine("3. Update a case");
+            Console.WriteLine("3. View case by ID");
+            Console.WriteLine("4. Update case");
+            Console.WriteLine("5. View all cases");
 
-            Console.WriteLine("Choose one of the options above (1-3).");
+            Console.WriteLine("Choose one of the options above (1-5).");
 
             switch (Console.ReadLine())
             {
@@ -36,7 +38,27 @@ internal class Program
 
                 case "3":
                     Console.Clear();
-                   await caseService.UpdateCase();
+                    var caseEntity = await caseService.GetCaseById();
+                    if (caseEntity == null)
+                    {
+                        Console.WriteLine($" There is no case with connectod to: {caseEntity.Id}");
+                        break;
+                    }
+                    Console.Clear();
+                    Console.WriteLine($"This case has caseId: {caseEntity.Id}");
+                    Console.WriteLine($"Comment: {caseEntity.Comment}");
+                    Console.WriteLine($"Created: {caseEntity.Created}");
+                    Console.WriteLine($"Status: {caseEntity.Status}");
+                    break;
+
+                case "4":
+                    Console.Clear();
+                    await caseService.UpdateCaseStatus();
+                    break;
+
+                case "5":
+                    Console.Clear();
+                    await caseService.ViewAllCases();
                     break;
 
 
