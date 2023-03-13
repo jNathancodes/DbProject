@@ -15,6 +15,7 @@ namespace DbProject.Context
         public DbSet<CaseEntity> Cases { get; set; }
         public DbSet<CustomerEntity> Customers { get; set; }
         public DbSet<AddressEntity> Address { get; set; }
+        public DbSet<CommentEntity> Comment { get; set; }
 
         public DataContext() 
         {

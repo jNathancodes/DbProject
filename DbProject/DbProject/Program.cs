@@ -10,19 +10,23 @@ internal class Program
         var customerService = new CustomerService();
         var caseService = new CaseService();
         var AddressService = new AddressService();
+        var commentservice = new CommentService();
 
         while (true)
         {
 
 
             Console.Clear();
-            Console.WriteLine("1. Create a customer");
-            Console.WriteLine("2. Create a new case");
-            Console.WriteLine("3. View case by ID");
-            Console.WriteLine("4. Update case");
-            Console.WriteLine("5. View all cases");
+            Console.WriteLine("Supports main manu.\n");
+            Console.WriteLine("1. Create a customer.");
+            Console.WriteLine("2. Create a new case.");
+            Console.WriteLine("3. View case by ID.");
+            Console.WriteLine("4. Update case.");
+            Console.WriteLine("5. View all cases.");
+            Console.WriteLine("6. Add comment to case (By ID).");
 
-            Console.WriteLine("Choose one of the options above (1-5).");
+
+            Console.WriteLine("\nChoose one of the options above (1-5).");
 
             switch (Console.ReadLine())
             {
@@ -46,7 +50,6 @@ internal class Program
                     }
                     Console.Clear();
                     Console.WriteLine($"This case has caseId: {caseEntity.Id}");
-                    Console.WriteLine($"Comment: {caseEntity.Comment}");
                     Console.WriteLine($"Created: {caseEntity.Created}");
                     Console.WriteLine($"Status: {caseEntity.Status}");
                     break;
@@ -60,6 +63,13 @@ internal class Program
                     Console.Clear();
                     await caseService.ViewAllCases();
                     break;
+
+                case "6":
+                    Console.Clear();
+                    await commentservice.AddComment();
+                    break;
+
+
 
 
 

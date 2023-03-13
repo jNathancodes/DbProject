@@ -18,6 +18,7 @@ namespace DbProject.Services
         {
             var customer = new CustomerEntity();
 
+
             Console.WriteLine("Firstname: ");
             customer.FirstName = Console.ReadLine() ?? "";
 
@@ -31,10 +32,12 @@ namespace DbProject.Services
             customer.PhoneNumber = Console.ReadLine() ?? "";
 
             var AddressService = new AddressService();
-            await AddressService.AddCustomerAddress(customer);
+            var addressId = await AddressService.AddCustomerAddress(customer);
+            customer.AddressId = addressId;
+
 
             await SaveCustomerToDb(customer);
-
+           
             Console.WriteLine($"{customer.FirstName} has been saved.");
 
         }

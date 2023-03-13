@@ -28,9 +28,6 @@ namespace DbProject.Services
             Console.WriteLine("Content: ");
             newCase.Content = Console.ReadLine() ?? "";
 
-            Console.WriteLine("Comment: ");
-            newCase.Comment = Console.ReadLine() ?? "";
-
             Console.WriteLine("Customer emailaddress: ");
             string emailAdress = Console.ReadLine();
 
@@ -108,7 +105,7 @@ namespace DbProject.Services
 
         public async Task ViewAllCases()
         {
-            List<CaseEntity> cases = await _context.Cases.ToListAsync();
+            List<CaseEntity> cases = await _context.Cases.Include(x => x.Comments).ToListAsync();
             if (cases == null!)
             {
                 Console.WriteLine("There is no cases in the Database");
@@ -118,7 +115,6 @@ namespace DbProject.Services
             {
                 Console.WriteLine($" CaseId: {caseEntity.Id}  -  Case status:  {caseEntity.Status}");
                 Console.WriteLine($" Content: {caseEntity.Content}");
-                Console.WriteLine($" Comment: {caseEntity.Comment}");
                 Console.WriteLine($" Created: {caseEntity.Created} \n");
             }
         }

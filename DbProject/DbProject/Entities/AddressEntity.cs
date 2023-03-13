@@ -11,7 +11,7 @@ namespace DbProject.Entities
 {
     public class AddressEntity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
@@ -25,6 +25,8 @@ namespace DbProject.Entities
         [Column(TypeName = "nvarchar(50)")]
         public string PostalCode { get; set; } = string.Empty;
 
-        public ICollection<CustomerEntity> Customer = new HashSet<CustomerEntity>();
+
+
+    //    public ICollection<CustomerEntity> Customer = new HashSet<CustomerEntity>();
     }
 }

@@ -13,7 +13,7 @@ namespace DbProject.Services
     {
         private DataContext _context = new DataContext();
 
-        public async Task AddCustomerAddress(CustomerEntity customer)
+        public async Task <Guid> AddCustomerAddress(CustomerEntity customer)
         {
             var address = new AddressEntity();
 
@@ -28,7 +28,10 @@ namespace DbProject.Services
 
             await AddAddressToDb(address);
 
-        }
+            return address.Id;
+
+            
+    }
         public async Task AddAddressToDb(AddressEntity address)
         {
             _context.Address.Add(address);

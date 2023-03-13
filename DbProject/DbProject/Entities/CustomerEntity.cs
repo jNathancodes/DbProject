@@ -2,6 +2,7 @@
 
 using DbProject.Enums;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbProject.Entities
 {
@@ -15,6 +16,10 @@ namespace DbProject.Entities
         public string LastName { get; set; } = null!;
         public string Email { get; set; } = null!; 
         public string PhoneNumber { get; set; } = null!;
+
+        [ForeignKey("AddressEntity")]
+        public Guid AddressId { get; set; }
+        public AddressEntity Address { get; set; }
 
     }
 }
