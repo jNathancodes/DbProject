@@ -25,6 +25,8 @@ namespace DbProject.Services
                 return;
             }
 
+            comment.CaseId = CaseAddCommentTo.Id;
+
             Console.WriteLine("Comment: ");
 
             comment.Comment = Console.ReadLine() ?? "";
@@ -32,6 +34,7 @@ namespace DbProject.Services
 
             await AddCommentToDb(comment);
         }
+
 
         public async Task AddCommentToDb(CommentEntity comment)
         {

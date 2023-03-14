@@ -27,6 +27,5 @@ namespace DbProject.Entities
 
 
 
-    //    public ICollection<CustomerEntity> Customer = new HashSet<CustomerEntity>();
     }
 }
