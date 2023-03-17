@@ -21,7 +21,7 @@ internal class Program
             Console.WriteLine("1. Create a customer.");
             Console.WriteLine("2. Create a new case.");
             Console.WriteLine("3. View case by ID.");
-            Console.WriteLine("4. Update case.");
+            Console.WriteLine("4. Update case Status.");
             Console.WriteLine("5. View all cases.");
             Console.WriteLine("6. Add comment to case (By ID).");
 
@@ -52,6 +52,10 @@ internal class Program
                     Console.WriteLine($"This case has caseId: {caseEntity.Id}");
                     Console.WriteLine($"Created: {caseEntity.Created}");
                     Console.WriteLine($"Status: {caseEntity.Status}");
+                    foreach (var comment in caseEntity.Comments)
+                    {
+                        Console.WriteLine($" Comment: {comment.Comment}  -  Created at: {comment.Created}");
+                    }
                     break;
 
                 case "4":

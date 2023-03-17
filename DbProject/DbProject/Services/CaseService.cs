@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DbProject.Services
 {
@@ -57,9 +58,8 @@ namespace DbProject.Services
             Console.WriteLine("Enter a case Id:");
             string userId = Console.ReadLine();
             Guid gUserId = new Guid(userId);
-
-
             CaseEntity caseEntity = await _context.Cases.FirstOrDefaultAsync(x => x.Id == gUserId);
+
 
             
 
@@ -116,8 +116,11 @@ namespace DbProject.Services
             {
                 Console.WriteLine($" CaseId: {caseEntity.Id}  -  Case status:  {caseEntity.Status}");
                 Console.WriteLine($" Content: {caseEntity.Content}");
-                Console.WriteLine($" Created: {caseEntity.Created} \n");
+                Console.WriteLine($" Number of commnets: {caseEntity.Comments.Count}, to view comments enter: View case by Id.");
+                Console.WriteLine($" Case created: {caseEntity.Created} \n");
+                
             }
+
         }
     }
 }

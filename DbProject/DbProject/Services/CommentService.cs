@@ -36,10 +36,18 @@ namespace DbProject.Services
         }
 
 
+
         public async Task AddCommentToDb(CommentEntity comment)
         {
             _context.Comment.Add(comment);
             var response = await _context.SaveChangesAsync();
+        }
+
+
+
+        public async Task ViewComments()
+        {
+
         }
     }
 }
